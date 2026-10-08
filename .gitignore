@@ -1,0 +1,14 @@
+# Ignore all files by default
+*
+
+# Allow traversal into all directories and subdirectories
+!*/
+
+# Whitelist allowed file extensions (recursively)
+!*.md
+!*.ttl
+!*.rdf
+!*.html
+
+# Keep the root .gitignore itself
+!/.gitignore
