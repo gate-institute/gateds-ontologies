@@ -9,6 +9,8 @@
 !*.ttl
 !*.rdf
 !*.html
+!*.png
+!*.jpg
 
 # Keep the root .gitignore itself
 !/.gitignore
