@@ -1,8 +1,3 @@
-
----
-title: GATE Institute Ontologies and Profiles
----
-
 # GATE Institute Ontologies and Profiles
 
 This repository contains ontologies, vocabularies, and semantic profiles developed at the GATE Institute, Sofia University.
