@@ -1,2 +1,0 @@
-# GATE Data Space Ontology
-
