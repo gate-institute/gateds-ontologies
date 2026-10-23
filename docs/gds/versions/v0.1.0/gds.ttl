@@ -86,7 +86,7 @@ gds:Operator a rdfs:Class, skos:Concept;
   skos:broader dpv-owl:Entity ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Operator of GATE Data Space"@en ;
-  skos:definition "A Party / Party Collection representing (a) opeartor(s) of the GATE Data Space"@en .
+  skos:definition "A Party / Party Collection representing (a) operator(s) of the GATE Data Space"@en .
 
 # ------------ Action Concepts ------------------ #
 
