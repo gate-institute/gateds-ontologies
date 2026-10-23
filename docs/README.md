@@ -6,8 +6,7 @@ This repository contains ontologies, vocabularies, and semantic profiles develop
 
 The GDS ODRL Profile extends the W3C Open Digital Rights Language (ODRL) with concepts for expressing policies in data-space environments.
 
-**Current version:** 0.1.0
+**Version:** 0.1.0
 
-- [Profile documentation](https://github.com/gate-institute/gateds-ontologies/blob/main/docs/gds/README.md)
-- [Turtle specification](gds/gds.ttl)
-- [Turtle specification v0.1.0](gds/versions/v0.1.0/gds.ttl)
+- [Profile documentation](https://gate-institute.github.io/gateds-ontologies/gds/)
+- [Turtle specification v0.1.0](https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.1.0/gds.ttl)
