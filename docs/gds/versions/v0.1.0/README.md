@@ -20,7 +20,7 @@ The profile defines domain-specific concepts and reuses existing semantic vocabu
 
 The profile is available in Turtle (RDF):
 
-[View the Turtle specification](https://gate-institute.github.io/gateds-ontologies/gds/gds.ttl)
+[View the Turtle specification](https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.1.0/gds.ttl)
 
 ## Versioning
 

@@ -11,11 +11,11 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix gds: <https://www.w3id.org/gds#> .
+@prefix gds: <https://w3id.org/gds#> .
 
 # ------------ Ontology/Profile Metadata ------------------ #
 
-<https://www.w3id.org/gds/profile> a owl:Ontology, prof:Profile ;
+<https://w3id.org/gds/profile> a owl:Ontology, prof:Profile ;
     dcterms:title "GATE Data Spaces ODRL Profile"@en ;
     dcterms:abstract "ODRL Profile for GATE Data Space"@en ;
     dcterms:description "ODRL Profile for GATE Data Space"@en ;
@@ -23,8 +23,8 @@
     prof:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
     prof:hasResource gds:gds-ttl ;
     vann:preferredNamespacePrefix "gds" ;
-    vann:preferredNamespaceUri "https://www.w3id.org/gds#" ;
-    owl:versionIRI <https://www.w3id.org/gds/profile/v0.1.0> ;
+    vann:preferredNamespaceUri "https://w3id.org/gds#" ;
+    owl:versionIRI <https://w3id.org/gds/profile/v0.1.0> ;
     owl:versionInfo "0.1.0" ;
     dcterms:created "2025-12-23"^^xsd:date ;
     dcterms:modified "2026-10-23"^^xsd:date ;
@@ -35,12 +35,12 @@
 
 gds:gds-ttl a prof:ResourceDescriptor ;
     prof:hasRole role:vocabulary ;
-    prof:hasArtifact <https://www.gate-institute.github.io/gateds-ontologies/gds/versions/v0.1.0/gds.ttl> ;
+    prof:hasArtifact <https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.1.0/gds.ttl> ;
     dcterms:title "GATE Data Spaces ODRL Profile Turtle Vocabulary"@en ;
     dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
     dcterms:conformsTo <https://www.w3.org/TR/turtle> .
 
-<https://www.w3id.org/gds#> a skos:Collection ;
+<https://w3id.org/gds#> a skos:Collection ;
     skos:prefLabel "GATE Data Spaces ODRL Profile Concepts"@en ;
     skos:member gds:Participant ;
     skos:member gds:GovernanceAuthority ;
@@ -64,7 +64,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
 
 # ------------ Actor/Party Concepts ------------------ #
 
-### https://www.w3id.org/gds#Participant
+### https://w3id.org/gds#Participant
 gds:Participant a rdfs:Class, skos:Concept;
   rdfs:subClassOf dpv-owl:Entity ;
   skos:broader dpv-owl:Entity ;
@@ -72,7 +72,7 @@ gds:Participant a rdfs:Class, skos:Concept;
   rdfs:label "[GATE] Participant of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
 
-### https://www.w3id.org/gds#GovernanceAuthority
+### https://w3id.org/gds#GovernanceAuthority
 gds:GovernanceAuthority a rdfs:Class, skos:Concept;
   rdfs:subClassOf dpv-owl:Entity ;
   skos:broader dpv-owl:Entity ;
@@ -80,7 +80,7 @@ gds:GovernanceAuthority a rdfs:Class, skos:Concept;
   rdfs:label "[GATE] Governance Authority of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing the GATE Data Space Governance Authority"@en .
 
-### https://www.w3id.org/gds#Operator
+### https://w3id.org/gds#Operator
 gds:Operator a rdfs:Class, skos:Concept;
   rdfs:subClassOf dpv-owl:Entity ;
   skos:broader dpv-owl:Entity ;
@@ -90,28 +90,28 @@ gds:Operator a rdfs:Class, skos:Concept;
 
 # ------------ Action Concepts ------------------ #
 
-### https://www.w3id.org/gds#Process
+### https://w3id.org/gds#Process
 gds:Process a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Process"@en ;
     odrl:includedIn odrl:use ;
     skos:definition "To carry out a series of actions to achieve a result"@en .
 
-### https://www.w3id.org/gds#PayToUse
+### https://w3id.org/gds#PayToUse
 gds:PayToUse a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Pay to use"@en ;
     odrl:includedIn odrl:use ;
     skos:definition "To pay in order to use a resource"@en .
 
-### https://www.w3id.org/gds#Access
+### https://w3id.org/gds#Access
 gds:Access a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Access"@en ;
     odrl:includedIn odrl:use ;
     skos:definition "To obtain / read a resource"@en .
 
-### https://www.w3id.org/gds#Distribute
+### https://w3id.org/gds#Distribute
 gds:Distribute a odrl:Action, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Distribute"@en ;
@@ -120,28 +120,28 @@ gds:Distribute a odrl:Action, skos:Concept ;
 
 # ------------ Purpose Concepts ------------------ #
 
-### https://www.w3id.org/gds#Research
+### https://w3id.org/gds#Research
 gds:Research a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
     rdfs:isDefinedBy gds: ;
     skos:broader dpv-owl:Purpose ;
     rdfs:label "[GATE] Research"@en ;
     skos:definition "Processing of data for the purpose of research"@en .
 
-### https://www.w3id.org/gds#IndependentAnalysis
+### https://w3id.org/gds#IndependentAnalysis
 gds:IndependentAnalysis a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
     rdfs:isDefinedBy gds: ;
     skos:broader dpv-owl:Purpose ;
     rdfs:label "[GATE] Independent analysis"@en ;
     skos:definition "To analyze data independently for one's own purposes"@en .
 
-### https://www.w3id.org/gds#ProductDevelopment
+### https://w3id.org/gds#ProductDevelopment
 gds:ProductDevelopment a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
     rdfs:isDefinedBy gds: ;
     skos:broader dpv-owl:Purpose ;
     rdfs:label "[GATE] Product Development"@en ;
     skos:definition "To use data to develop or improve products, services, or solutions."@en .
 
-### https://www.w3id.org/gds#Training
+### https://w3id.org/gds#Training
 gds:Training a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
     rdfs:isDefinedBy gds: ;
     skos:broader dpv-owl:Purpose ;
@@ -150,13 +150,13 @@ gds:Training a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
 
 # ------------ Left Operand/Constraints Concepts ------------------ #
 
-### https://www.w3id.org/gds#MaxConsumptionDate
+### https://w3id.org/gds#MaxConsumptionDate
 gds:MaxConsumptionDate a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Max Consumption Date"@en ;
     skos:definition "Latest date/time at which the resource may be consumed."@en .
 
-### https://www.w3id.org/gds#ValidNDA
+### https://w3id.org/gds#ValidNDA
 gds:ValidNDA a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Valid Non-Disclosure Agreement"@en ;
@@ -164,37 +164,37 @@ gds:ValidNDA a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
 
 # ------------ Properties to be visualised as refinements ------------------ #
 
-### https://www.w3id.org/gds#Name
+### https://w3id.org/gds#Name
 gds:Name a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] name"@en .
 
-### https://www.w3id.org/gds#MemberSince
+### https://w3id.org/gds#MemberSince
 gds:MemberSince a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] member since"@en .
 
-### https://www.w3id.org/gds#Type
+### https://w3id.org/gds#Type
 gds:Type a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] type"@en .
 
-### https://www.w3id.org/gds#Location
+### https://w3id.org/gds#Location
 gds:Location a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] location"@en .
 
-### https://www.w3id.org/gds#Recipient
+### https://w3id.org/gds#Recipient
 gds:Recipient a rdf:Property, skos:Concept ;
     rdfs:domain gds:PayToUse ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] recipient"@en .
 
-### https://www.w3id.org/gds#Amount
+### https://w3id.org/gds#Amount
 gds:Amount a rdf:Property, skos:Concept ;
     rdfs:domain gds:PayToUse ;
     rdfs:isDefinedBy gds: ;
