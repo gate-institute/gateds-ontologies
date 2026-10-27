@@ -66,8 +66,8 @@ gds:gds-ttl a prof:ResourceDescriptor ;
 
 ### https://w3id.org/gds#Participant
 gds:Participant a odrl:Party, skos:Concept;
-#   rdfs:subClassOf dpv-owl:Entity ;
-#   skos:broader dpv-owl:Entity ;
+  rdfs:subClassOf dpv-owl:Entity ;
+  skos:broader dpv-owl:Entity ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Participant of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
