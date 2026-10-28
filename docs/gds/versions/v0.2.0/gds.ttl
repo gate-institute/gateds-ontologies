@@ -66,24 +66,18 @@ gds:gds-ttl a prof:ResourceDescriptor ;
 
 ### https://w3id.org/gds#Participant
 gds:Participant a odrl:Party, skos:Concept;
-  rdfs:subClassOf dpv-owl:Entity ;
-  skos:broader dpv-owl:Entity ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Participant of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
 
 ### https://w3id.org/gds#GovernanceAuthority
 gds:GovernanceAuthority a odrl:Party, skos:Concept;
-#   rdfs:subClassOf dpv-owl:Entity ;
-#   skos:broader dpv-owl:Entity ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Governance Authority of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing the GATE Data Space Governance Authority"@en .
 
 ### https://w3id.org/gds#Operator
 gds:Operator a odrl:Party, skos:Concept;
-#   rdfs:subClassOf dpv-owl:Entity ;
-#   skos:broader dpv-owl:Entity ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Operator of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) operator(s) of the GATE Data Space"@en .
