@@ -21,7 +21,7 @@
     vann:preferredNamespacePrefix "gds" ;
     vann:preferredNamespaceUri "http://www.gate-ai.eu/gds#" ;
     rdfs:label "ODRL Profile for GATE Data Space"@en ;
-    owl:versionInfo "0.2-omnibus-credential-aware-prototype-0.2" ;
+    owl:versionInfo "0.2-omnibus-experiment-0.1" ;
     dcterms:created "2025-12-23"^^xsd:date ;
     dcterms:modified "2026-11-05"^^xsd:date ;
     dcterms:creator "GATE Institute" ;
@@ -58,47 +58,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:Type ;
     skos:member gds:Location ;
     skos:member gds:Recipient ;
-    skos:member gds:Amount ;
-    skos:member gds:ResearchOrganisation ;
-    skos:member gds:MunicipalDataProvider ;
-    skos:member gds:ScientificResearchPurpose ;
-    skos:member gds:ResearchRelatedTechnologyDevelopment ;
-    skos:member gds:scientificResearchQualification ;
-    skos:member gds:scientificKnowledgeContribution ;
-    skos:member gds:societalKnowledgeAndWellbeingAim ;
-    skos:member gds:systematicMethodology ;
-    skos:member gds:scientificAndEthicalStandards ;
-    skos:member gds:verifiableTransparentResults ;
-    skos:member gds:researchAutonomyIndependence ;
-    skos:member gds:article89Safeguards ;
-    skos:member gds:article6LawfulBasis ;
-    skos:member gds:article9Condition .
-
-# ------------ Credential Representation Metadata ------------ #
-# General, OPTIONAL annotation properties: usable on any RDF resource that
-# represents an actual verifiable/attestable CLAIM (not limited to odrl:LeftOperand).
-# `rdfs:domain` controls semantic/editor applicability; `credentialGroup`
-# controls JSON nesting. They are intentionally independent.
-# A group URI need not be defined in advance. An undeclared group uses its
-# IRI local name as JSON object key unless a gds:jsonKey is provided.
-# The presence of a group and datatype makes a concept eligible for schema
-# generation; it does NOT imply a REQUIRED claim or a VERIFIED claim.
-
-gds:credentialGroup a owl:AnnotationProperty ;
-    rdfs:label "Credential group"@en ;
-    rdfs:comment "Identifies the JSON group containing this claim, independently of its ODRL refinement domain."@en .
-
-gds:claimDatatype a owl:AnnotationProperty ;
-    rdfs:label "Credential claim datatype"@en ;
-    rdfs:comment "Expected datatype of this claim; map xsd:boolean to a JSON Schema boolean, etc."@en .
-
-gds:jsonKey a owl:AnnotationProperty ;
-    rdfs:label "Optional credential JSON key override"@en ;
-    rdfs:comment "Override the default JSON field name inferred from the local name of an RDF term."@en .
-
-gds:parentCredentialGroup a owl:AnnotationProperty ;
-    rdfs:label "Optional parent credential group"@en ;
-    rdfs:comment "For future nested credential groups; follow this property recursively when constructing paths."@en .
+    skos:member gds:Amount .
 
 # ------------ Actor/Party Concepts ------------------ #
 
@@ -125,20 +85,6 @@ gds:Operator a rdfs:Class, skos:Concept;
   rdfs:isDefinedBy gds: ;
   rdfs:label "[GATE] Operator of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) opeartor(s) of the GATE Data Space"@en .
-
-gds:ResearchOrganisation a rdfs:Class, skos:Concept ;
-    rdfs:subClassOf gds:Participant ;
-    skos:broader gds:Participant ;
-    rdfs:label "[GATE] Research organisation"@en ;
-    skos:definition "A data space participant acting as a research organisation. This label does not establish legal research qualification."@en ;
-    rdfs:isDefinedBy gds: .
-
-gds:MunicipalDataProvider a rdfs:Class, skos:Concept ;
-    rdfs:subClassOf gds:Participant ;
-    skos:broader gds:Participant ;
-    rdfs:label "[GATE] Municipal data provider"@en ;
-    skos:definition "A municipal or public-sector participant providing urban data."@en ;
-    rdfs:isDefinedBy gds: .
 
 # ------------ Action Concepts ------------------ #
 
@@ -200,133 +146,19 @@ gds:Training a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
     rdfs:label "[GATE] Training"@en ;
     skos:definition "To use data to train or validate models, algorithms, or systems."@en .
 
-gds:ScientificResearchPurpose a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
-    skos:broader gds:Research ;
-    rdfs:label "[GATE] Scientific research (declared purpose)"@en ;
-    skos:definition "A declared purpose of scientific research; its qualification remains subject to the relevant assessment."@en ;
-    rdfs:isDefinedBy gds: .
-
-gds:ResearchRelatedTechnologyDevelopment a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
-    skos:broader gds:Research ;
-    rdfs:label "[GATE] Research-related technology development (declared purpose)"@en ;
-    skos:definition "Declared research-related technology development without an automatic determination that the legal research criteria are met."@en ;
-    rdfs:isDefinedBy gds: .
-
-# ------------ Omnibus policy concepts ------------------ #
-# V1 models the current-GDPR scenario; V2 models the proposed Omnibus.
-# These statements describe the verification attributes; they do not attest
-# to legal compliance or imply that the proposed Digital Omnibus is enacted.
-
-gds:scientificResearchQualification a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Scientific research qualification"@en ;
-    skos:definition "Assessed qualification of the intended activity as scientific research under the applicable legal framework."@en ;
-    skos:scopeNote "V1. The research activity must be assessed; a declaration of research purpose is not sufficient."@en ;
-    rdfs:domain gds:Process ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:scientificKnowledgeContribution a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Scientific knowledge contribution"@en ;
-    skos:definition "Assessed contribution of the activity to scientific knowledge."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria."@en ;
-    rdfs:domain gds:Research ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:societalKnowledgeAndWellbeingAim a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Societal knowledge and well-being aim"@en ;
-    skos:definition "Assessed aim to contribute to knowledge and societal well-being."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria."@en ;
-    rdfs:domain gds:Research ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:systematicMethodology a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Systematic methodology"@en ;
-    skos:definition "Assessed use of a systematic research methodology."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria."@en ;
-    rdfs:domain gds:Research ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:scientificAndEthicalStandards a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Scientific and ethical standards"@en ;
-    skos:definition "Assessed adherence to applicable scientific and ethical standards."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria."@en ;
-    rdfs:domain gds:Research ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:verifiableTransparentResults a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Verifiable and transparent results"@en ;
-    skos:definition "Assessed verifiability and transparency of the research results."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria."@en ;
-    rdfs:domain gds:Research ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:Research ;
-    gds:claimDatatype xsd:boolean .
-
-gds:researchAutonomyIndependence a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] Research autonomy and independence"@en ;
-    skos:definition "Assessed autonomy and independence of the research organisation in the context of the activity."@en ;
-    skos:scopeNote "V2 proposed Digital Omnibus research criteria; the organisation is not presumed independent merely because of its type."@en ;
-    rdfs:domain gds:Participant ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:ResearchOrganisation ;
-    gds:claimDatatype xsd:boolean .
-
-gds:article89Safeguards a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] GDPR Article 89 safeguards"@en ;
-    skos:definition "Assessment that appropriate Article 89(1) safeguards are in place for the intended processing."@en ;
-    skos:scopeNote "Both V1 and V2. This is activity- and dataset-sensitive; it is not a blanket organisation-wide approval."@en ;
-    rdfs:domain gds:Participant ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:ProcessingCompliance ;
-    gds:claimDatatype xsd:boolean .
-
-gds:article6LawfulBasis a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] GDPR Article 6 lawful basis"@en ;
-    skos:definition "Assessment that there is an applicable GDPR Article 6(1) lawful basis for the intended processing."@en ;
-    skos:scopeNote "Both V1 and V2. Context-specific, not an inherent attribute of the participant."@en ;
-    rdfs:domain gds:Participant ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:ProcessingCompliance ;
-    gds:claimDatatype xsd:boolean .
-
-# Optional Article 9 claim from the source legal-check table.
-# Not annotated with credentialGroup/claimDatatype: omitted from the demo schema.
-gds:article9Condition a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
-    rdfs:label "[GATE] GDPR Article 9 condition (if applicable)"@en ;
-    skos:definition "Assessment of a suitable Article 9 condition where special-category personal data are processed."@en ;
-    rdfs:domain gds:Participant ;
-    rdfs:isDefinedBy gds: ;
-    gds:credentialGroup gds:ProcessingCompliance ;
-    gds:claimDatatype xsd:boolean .
-
-# ------------ Existing Left Operand/Constraints Concepts ------------------ #
+# ------------ Left Operand/Constraints Concepts ------------------ #
 
 ### https://www.gate-ai.eu/gds#MaxConsumptionDate
 gds:MaxConsumptionDate a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Max Consumption Date"@en ;
-    skos:definition "Latest date/time at which the resource may be consumed."@en ;
-    gds:credentialGroup gds:UsageConditions ;
-    gds:claimDatatype xsd:dateTime ;
-    gds:jsonKey "maxConsumptionDate" .
+    skos:definition "Latest date/time at which the resource may be consumed."@en .
 
 ### https://www.gate-ai.eu/gds#ValidNDA
 gds:ValidNDA a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "[GATE] Valid Non-Disclosure Agreement"@en ;
-    skos:definition "Specifies that a valid and active non-disclosure agreement must be in place for the permitted use of the resource."@en ;
-    gds:credentialGroup gds:UsageConditions ;
-    gds:claimDatatype xsd:boolean ;
-    gds:jsonKey "validNDA" .
+    skos:definition "Specifies that a valid and active non-disclosure agreement must be in place for the permitted use of the resource."@en .
 
 # ------------ Properties to be visualised as refinements ------------------ #
 
@@ -334,59 +166,88 @@ gds:ValidNDA a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
 gds:Name a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] name"@en ;
-    gds:credentialGroup gds:Participant ;
-    gds:claimDatatype xsd:string ;
-    gds:jsonKey "name" .
+    rdfs:label "[GATE] name"@en .
 
 ### https://www.gate-ai.eu/gds#MemberSince
 gds:MemberSince a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] member since"@en ;
-    gds:credentialGroup gds:Participant ;
-    gds:claimDatatype xsd:dateTime ;
-    gds:jsonKey "since" .
+    rdfs:label "[GATE] member since"@en .
 
 ### https://www.gate-ai.eu/gds#Type
 gds:Type a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] type"@en ;
-    gds:credentialGroup gds:Participant ;
-    gds:claimDatatype xsd:string ;
-    gds:jsonKey "type" .
+    rdfs:label "[GATE] type"@en .
 
 ### https://www.gate-ai.eu/gds#Location
 gds:Location a rdf:Property, skos:Concept ;
     rdfs:domain gds:Participant ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] location"@en ;
-    gds:credentialGroup gds:Participant ;
-    gds:claimDatatype xsd:string ;
-    gds:jsonKey "location" .
+    rdfs:label "[GATE] location"@en .
 
 ### https://www.gate-ai.eu/gds#Recipient
 gds:Recipient a rdf:Property, skos:Concept ;
     rdfs:domain gds:PayToUse ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] recipient"@en ;
-    gds:credentialGroup gds:PayToUse ;
-    gds:claimDatatype xsd:string ;
-    gds:jsonKey "recipient" .
+    rdfs:label "[GATE] recipient"@en .
 
 ### https://www.gate-ai.eu/gds#Amount
 gds:Amount a rdf:Property, skos:Concept ;
     rdfs:domain gds:PayToUse ;
     rdfs:isDefinedBy gds: ;
-    rdfs:label "[GATE] amount"@en ;
-    gds:credentialGroup gds:PayToUse ;
-    gds:claimDatatype xsd:decimal ;
-    gds:jsonKey "amount" .
+    rdfs:label "[GATE] amount"@en .
 
-# ------------ Synthetic demonstration entities (not assertions of real compliance) ------------ #
-# Representative synthetic parties/assets used for local demonstration.
-# Do not interpret as real-world legal attestations.
+########################################################################
+# ADDITIVE OMNIBUS PROTOTYPE EXTENSION
+########################################################################
+
+# Experimental additive extension to the GATE Data Space (GDS) ODRL profile.
+# It references the ORIGINAL namespace exactly: http://www.gate-ai.eu/gds#
+# Upload this file alongside the original gds_profile.ttl, or upload the merged file.
+# Distinguishes CURRENT GDPR (V1) and PROPOSED Digital Omnibus (V2).
+# A vocabulary declaration only describes a check; it does not verify legal compliance.
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dpv-owl: <https://w3id.org/dpv/owl#> .
+@prefix gds: <http://www.gate-ai.eu/gds#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# -------- Optional actor/purpose vocabulary to help policy-editor dropdowns --------
+
+gds:ResearchOrganisation a rdfs:Class, skos:Concept ;
+    rdfs:subClassOf gds:Participant ;
+    skos:broader gds:Participant ;
+    rdfs:label "[GATE] Research organisation"@en ;
+    skos:definition "A participating organisation that requests data for research activities; its legal qualification is evaluated separately."@en ;
+    rdfs:isDefinedBy gds: .
+
+gds:MunicipalDataProvider a rdfs:Class, skos:Concept ;
+    rdfs:subClassOf gds:Participant ;
+    skos:broader gds:Participant ;
+    rdfs:label "[GATE] Municipal data provider"@en ;
+    skos:definition "A municipal public-sector participant sharing urban data."@en ;
+    rdfs:isDefinedBy gds: .
+
+gds:ScientificResearchPurpose a dpv-owl:Purpose, skos:Concept, rdfs:Class ;
+    skos:broader gds:Research ;
+    rdfs:label "[GATE] Scientific research (declared purpose)"@en ;
+    skos:definition "Scientific research declared as the purpose of an access request; the legal qualification must be checked independently."@en ;
+    rdfs:isDefinedBy gds: .
+
+gds:ResearchRelatedTechnologyDevelopment a dpv-owl:Purpose, skos:Concept, rdfs:Class ;
+    skos:broader gds:Research ;
+    rdfs:label "[GATE] Research-related technology development (declared purpose)"@en ;
+    skos:definition "A declared technology-development purpose linked to research, without assuming that it meets the applicable legal definition."@en ;
+    skos:scopeNote "In the proposed Omnibus scenario, the relevant research qualification criteria must still be assessed. This category alone does not establish compliance."@en ;
+    rdfs:isDefinedBy gds: .
+
+# Demo individuals use the SAME URIs as in the user-provided policy examples.
+# They are synthetic placeholders, not assertions about an actual municipality or researcher.
 <https://example.org/urbspace/municipality> a odrl:Party, gds:MunicipalDataProvider ;
     rdfs:label "Demo municipality (data provider)"@en .
 <https://example.org/urbspace/researcher> a odrl:Party, gds:ResearchOrganisation ;
@@ -394,10 +255,98 @@ gds:Amount a rdf:Property, skos:Concept ;
 <https://example.org/urbspace/mobility-data> a odrl:Asset ;
     rdfs:label "Demo urban mobility dataset"@en .
 
+# -------- Rule constraints / LeftOperands --------
+# ODRL rules can use any of these as rule-level constraints.
+# rdfs:domain additionally helps the current editor expose properties as
+# Action, Purpose, and Actor refinements where its discovery queries support that.
+# The human-readable statuses are string values: confirmed / verified.
 
-# NOTE: gds:purposeCompatibility was intentionally excluded from the Omnibus example.
+gds:scientificResearchQualification a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Scientific research qualification"@en ;
+    skos:definition "An assessment has confirmed that the requested data-processing activity qualifies as scientific research under the applicable legal framework."@en ;
+    skos:scopeNote "V1: holistic research-purpose verification; not merely the applicant's declaration."@en ;
+    rdfs:domain gds:Process ;
+    rdfs:isDefinedBy gds: .
 
-# NOTE: Existing Actor, Action and Purpose classes describe vocabulary, not
-# scalar facts. If a role/action/purpose itself needs credential verification,
-# define an explicit claim about that fact, then annotate it with the same two
-# credential metadata properties (without changing parser logic).
+gds:scientificKnowledgeContribution a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Scientific knowledge contribution"@en ;
+    skos:definition "An assessment has verified that the proposed activity contributes to scientific knowledge."@en ;
+    skos:scopeNote "V2: proposed scientific-research definition; a substantiated assessment is required."@en ;
+    rdfs:domain gds:Research ;
+    rdfs:isDefinedBy gds: .
+
+gds:societalKnowledgeAndWellbeingAim a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Societal knowledge and well-being aim"@en ;
+    skos:definition "An assessment has verified that the activity pursues the relevant knowledge and societal well-being objectives."@en ;
+    skos:scopeNote "V2: proposed scientific-research definition; assessed, not assumed."@en ;
+    rdfs:domain gds:Research ;
+    rdfs:isDefinedBy gds: .
+
+gds:systematicMethodology a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Systematic research methodology"@en ;
+    skos:definition "An assessment has verified that a systematic research methodology is used."@en ;
+    skos:scopeNote "V2: proposed scientific-research definition; supported by documented methods."@en ;
+    rdfs:domain gds:Research ;
+    rdfs:isDefinedBy gds: .
+
+gds:scientificAndEthicalStandards a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Scientific and ethical standards"@en ;
+    skos:definition "An assessment has verified adherence to applicable scientific and ethical standards."@en ;
+    skos:scopeNote "V2: proposed scientific-research definition; requires supporting evidence."@en ;
+    rdfs:domain gds:Research ;
+    rdfs:isDefinedBy gds: .
+
+gds:verifiableTransparentResults a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Verifiable and transparent results"@en ;
+    skos:definition "An assessment has verified that the research results satisfy the required verifiability and transparency criteria."@en ;
+    skos:scopeNote "V2: proposed scientific-research definition; requires supporting evidence."@en ;
+    rdfs:domain gds:Research ;
+    rdfs:isDefinedBy gds: .
+
+gds:researchAutonomyIndependence a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] Research autonomy and independence"@en ;
+    skos:definition "An assessment has verified the required autonomy and independence of the research activity and its conducting organisation."@en ;
+    skos:scopeNote "V2: organisational qualification; not inferred from organisation type alone."@en ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: .
+
+gds:article89Safeguards a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] GDPR Article 89(1) safeguards"@en ;
+    skos:definition "An assessment has verified applicable safeguards for research processing, including relevant data minimisation and technical/organisational measures."@en ;
+    skos:scopeNote "Both policies: GDPR Article 89(1) research safeguards."@en ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: .
+
+gds:article6LawfulBasis a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] GDPR Article 6 lawful basis"@en ;
+    skos:definition "An assessment has verified an applicable lawful basis for the proposed personal-data processing."@en ;
+    skos:scopeNote "Both policies: a suitable Article 6(1) legal basis is required."@en ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: .
+
+gds:article9Condition a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:label "[GATE] GDPR Article 9 condition, where applicable"@en ;
+    skos:definition "An assessment has verified a relevant exception or condition for processing special categories of personal data where Article 9 applies."@en ;
+    skos:scopeNote "Optional extension from the legal-check table; not used in the two supplied draft policies."@en ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: .
+
+# The original GDS collection gets the additional terms for vocabulary discovery.
+<https://www.gate-ai.eu/gds#>
+    skos:member gds:ResearchOrganisation, gds:MunicipalDataProvider,
+        gds:ScientificResearchPurpose, gds:ResearchRelatedTechnologyDevelopment,
+
+        gds:scientificResearchQualification,
+        gds:scientificKnowledgeContribution,
+        gds:societalKnowledgeAndWellbeingAim,
+        gds:systematicMethodology,
+        gds:scientificAndEthicalStandards,
+        gds:verifiableTransparentResults,
+        gds:researchAutonomyIndependence,
+        gds:article89Safeguards,
+        gds:article6LawfulBasis,
+        gds:article9Condition .
+
+# Intentionally no gds:purposeCompatibility term. The supplied additional remarks
+# explicitly request removing that check from both example policies.
+# Commercial interest is not an automatic prohibition under these sample policies.
