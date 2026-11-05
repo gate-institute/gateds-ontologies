@@ -1,0 +1,300 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dpv-owl: <https://w3id.org/dpv/owl#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix gds: <https://w3id.org/gds#> .
+
+# ------------ Ontology/Profile Metadata ------------------ #
+
+<https://w3id.org/gds/profile> a owl:Ontology, prof:Profile ;
+    dcterms:title "GATE Data Spaces ODRL Profile"@en ;
+    dcterms:abstract "ODRL Profile for GATE Data Space"@en ;
+    dcterms:description "ODRL Profile for GATE Data Space"@en ;
+    rdfs:label "GATE Data Spaces ODRL Profile"@en ;
+    prof:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
+    prof:hasResource gds:gds-ttl ;
+    vann:preferredNamespacePrefix "gds" ;
+    vann:preferredNamespaceUri "https://w3id.org/gds#" ;
+    owl:versionIRI <https://w3id.org/gds/profile/v0.2.0> ;
+    owl:versionInfo "0.2.0" ;
+    dcterms:created "2025-12-23"^^xsd:date ;
+    dcterms:modified "2026-11-05"^^xsd:date ;
+    dcterms:creator "GATE Institute, Sofia University" ;
+    dcterms:publisher "GATE Institute, Sofia University" ;
+    sw:term_status "unstable"@en ;
+    dcterms:source <http://www.w3.org/ns/odrl/2/>, <http://w3id.org/dpv/owl> .
+
+gds:gds-ttl a prof:ResourceDescriptor ;
+    prof:hasRole role:vocabulary ;
+    prof:hasArtifact <https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.2.0/gds.ttl> ;
+    dcterms:title "GATE Data Spaces ODRL Profile Turtle Vocabulary"@en ;
+    dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
+    dcterms:conformsTo <https://www.w3.org/TR/turtle> .
+
+<https://w3id.org/gds#> a skos:Collection ;
+    skos:prefLabel "GATE Data Spaces ODRL Profile Concepts"@en ;
+    skos:member gds:Participant ;
+    skos:member gds:GovernanceAuthority ;
+    skos:member gds:Operator ;
+    skos:member gds:Municipality ;
+    skos:member gds:Researcher ;
+    skos:member gds:Process ;
+    skos:member gds:PayToUse ;
+    skos:member gds:Access ;
+    skos:member gds:Distribute ;
+    skos:member gds:Research ;
+    skos:member gds:IndependentAnalysis ;
+    skos:member gds:ProductDevelopment ;
+    skos:member gds:Training ;
+    skos:member gds:MaxConsumptionDate ;
+    skos:member gds:ValidNDA ;
+    skos:member gds:Name ;
+    skos:member gds:MemberSince ;
+    skos:member gds:Type ;
+    skos:member gds:Location ;
+    skos:member gds:Recipient ;
+    skos:member gds:Amount ;
+    skos:member gds:ScientificResearchQualification ;
+    skos:member gds:Article89Safeguards ;
+    skos:member gds:Article6LawfulBasis ;
+    skos:member gds:PurposeCompatibility ;
+    skos:member gds:ScientificKnowledgeContribution ;
+    skos:member gds:SocietalKnowledgeAndWellbeingAim ;
+    skos:member gds:SystematicMethodology ;
+    skos:member gds:ScientificAndEthicalStandards ;
+    skos:member gds:VerifiableTransparentResults ;
+    skos:member gds:ResearchAutonomyIndependence .
+
+# ------------ Actor/Party Concepts ------------------ #
+
+### https://w3id.org/dpv/owl#Entity
+dpv-owl:Entity a odrl:Party, skos:Concept ;
+    rdfs:label "Entity"@en ;
+    skos:definition "A human or non-human thing that constitutes as an entity"@en .
+
+### https://w3id.org/gds#Participant
+gds:Participant a rdfs:Class, skos:Concept;
+  rdfs:subClassOf dpv-owl:Entity ;
+  skos:broader dpv-owl:Entity ;
+  rdfs:isDefinedBy gds: ;
+  rdfs:label "Participant of GATE Data Space"@en ;
+  skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
+
+### https://w3id.org/gds#GovernanceAuthority
+gds:GovernanceAuthority a rdfs:Class, skos:Concept;
+  rdfs:subClassOf dpv-owl:Entity ;
+  skos:broader dpv-owl:Entity ;
+  rdfs:isDefinedBy gds: ;
+  rdfs:label "Governance Authority of GATE Data Space"@en ;
+  skos:definition "A Party / Party Collection representing the GATE Data Space Governance Authority"@en .
+
+### https://w3id.org/gds#Operator
+gds:Operator a rdfs:Class, skos:Concept;
+  rdfs:subClassOf dpv-owl:Entity ;
+  skos:broader dpv-owl:Entity ;
+  rdfs:isDefinedBy gds: ;
+  rdfs:label "Operator of GATE Data Space"@en ;
+  skos:definition "A Party / Party Collection representing (a) operator(s) of the GATE Data Space"@en .
+
+### https://w3id.org/gds#Municipality
+gds:Municipality a rdfs:Class, skos:Concept ;
+  rdfs:subClassOf gds:Participant ;
+  skos:broader gds:Participant ;
+  rdfs:isDefinedBy gds: ;
+  rdfs:label "Municipality"@en ;
+  skos:definition "A specific administrative entity that represents the lowest tier of local government"@en .
+
+### https://w3id.org/gds#Researcher
+gds:Researcher a rdfs:Class, skos:Concept ;
+    rdfs:subClassOf gds:Participant ;
+    skos:broader gds:Participant ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Researcher"@en ;
+    skos:definition "A specific subclass of an entity who is actively engaged in scientific, academic, or professional investigation to discover or revise facts."@en .
+
+# ------------ Action Concepts ------------------ #
+
+### https://w3id.org/gds#Process
+gds:Process a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Process"@en ;
+    odrl:includedIn odrl:use ;
+    skos:definition "To carry out a series of actions to achieve a result"@en .
+
+### https://w3id.org/gds#PayToUse
+gds:PayToUse a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Pay to use"@en ;
+    odrl:includedIn odrl:use ;
+    skos:definition "To pay in order to use a resource"@en .
+
+### https://w3id.org/gds#Access
+gds:Access a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Access"@en ;
+    odrl:includedIn odrl:use ;
+    skos:definition "To obtain / read a resource"@en .
+
+### https://w3id.org/gds#Distribute
+gds:Distribute a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Distribute"@en ;
+    odrl:includedIn odrl:transfer ;
+    skos:definition "To redistribute / share a resource"@en .
+
+# ------------ Purpose Concepts ------------------ #
+
+### https://w3id.org/gds#Research
+gds:Research a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
+    rdfs:isDefinedBy gds: ;
+    skos:broader dpv-owl:Purpose ;
+    rdfs:label "Research"@en ;
+    skos:definition "Processing of data for the purpose of research"@en .
+
+### https://w3id.org/gds#IndependentAnalysis
+gds:IndependentAnalysis a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
+    rdfs:isDefinedBy gds: ;
+    skos:broader dpv-owl:Purpose ;
+    rdfs:label "Independent analysis"@en ;
+    skos:definition "To analyze data independently for one's own purposes"@en .
+
+### https://w3id.org/gds#ProductDevelopment
+gds:ProductDevelopment a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
+    rdfs:isDefinedBy gds: ;
+    skos:broader dpv-owl:Purpose ;
+    rdfs:label "Product Development"@en ;
+    skos:definition "To use data to develop or improve products, services, or solutions."@en .
+
+### https://w3id.org/gds#Training
+gds:Training a rdfs:Class, skos:Concept, dpv-owl:Purpose ;
+    rdfs:isDefinedBy gds: ;
+    skos:broader dpv-owl:Purpose ;
+    rdfs:label "Training"@en ;
+    skos:definition "To use data to train or validate models, algorithms, or systems."@en .
+
+# ------------ Left Operand/Constraints Concepts ------------------ #
+
+### https://w3id.org/gds#MaxConsumptionDate
+gds:MaxConsumptionDate a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "max consumption date"@en ;
+    skos:definition "Latest date/time at which the resource may be consumed."@en .
+
+### https://w3id.org/gds#ValidNDA
+gds:ValidNDA a odrl:LeftOperand, owl:NamedIndividual, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "valid non-disclosure agreement"@en ;
+    skos:definition "Specifies that a valid and active non-disclosure agreement must be in place for the permitted use of the resource."@en .
+
+# ------------ Properties to be visualised as refinements ------------------ #
+
+### https://w3id.org/gds#Name
+gds:Name a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "name"@en ;
+    skos:definition "The name identifying a participant in the GATE Data Space."@en .
+
+### https://w3id.org/gds#MemberSince
+gds:MemberSince a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "member since"@en ;
+    skos:definition "The date on which a participant became a member of the GATE Data Space."@en .
+
+### https://w3id.org/gds#Type
+gds:Type a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "type"@en ;
+    skos:definition "The type or category of a participant in the GATE Data Space."@en .
+
+### https://w3id.org/gds#Location
+gds:Location a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:Participant ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "location"@en ;
+    skos:definition "The geographical location associated with a participant in the GATE Data Space."@en .
+
+### https://w3id.org/gds#Recipient
+gds:Recipient a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:PayToUse ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "recipient"@en ;
+    skos:definition "The party designated to receive the payment required for using a resource."@en .
+
+### https://w3id.org/gds#Amount
+gds:Amount a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:domain gds:PayToUse ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "amount"@en ;
+    skos:definition "The monetary amount required to be paid for using a resource."@en .
+
+### https://w3id.org/gds#ScientificResearchQualification
+gds:ScientificResearchQualification a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "scientific research qualification"@en ;
+    skos:definition "Indicates whether an activity qualifies as scientific research under the GDPR."@en .
+
+### https://w3id.org/gds#Article89Safeguards
+gds:Article89Safeguards a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "article 89 safeguards"@en ;
+    skos:definition "Indicates whether appropriate technical and organisational safeguards are implemented in accordance with Article 89(1) of the GDPR."@en .
+
+### https://w3id.org/gds#Article6LawfulBasis
+gds:Article6LawfulBasis a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "article 6 lawful basis"@en ;
+    skos:definition "Specifies the legal basis relied upon for processing personal data under Article 6(1) of the GDPR."@en .
+
+### https://w3id.org/gds#PurposeCompatibility
+gds:PurposeCompatibility a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "purpose compatibility"@en ;
+    skos:definition "Indicates whether further processing of personal data is compatible with the purposes for which the data were originally collected."@en .
+
+### https://w3id.org/gds#ScientificKnowledgeContribution
+gds:ScientificKnowledgeContribution a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "scientific knowledge contribution"@en ;
+    skos:definition "Indicates whether the research has the potential to contribute to existing scientific knowledge or apply such knowledge in novel ways."@en .
+
+### https://w3id.org/gds#SocietalKnowledgeAndWellbeingAim
+gds:SocietalKnowledgeAndWellbeingAim a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "societal knowledge and well-being aim"@en ;
+    skos:definition "Indicates whether the research aims to advance collective knowledge or contribute to societal well-being."@en .
+
+### https://w3id.org/gds#SystematicMethodology
+gds:SystematicMethodology a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "systematic methodology"@en ;
+    skos:definition "Indicates whether the research follows a methodical and systematic approach appropriate to its objectives."@en .
+
+### https://w3id.org/gds#ScientificAndEthicalStandards
+gds:ScientificAndEthicalStandards a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "scientific and ethical standards"@en ;
+    skos:definition "Indicates whether the research adheres to applicable scientific and ethical standards and recognised research practices."@en .
+
+### https://w3id.org/gds#VerifiableTransparentResults
+gds:VerifiableTransparentResults a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "verifiable transparent results"@en ;
+    skos:definition "Indicates whether the research methods and results are sufficiently transparent and documented to allow independent scrutiny and verification."@en .
+
+### https://w3id.org/gds#ResearchAutonomyIndependence
+gds:ResearchAutonomyIndependence a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "research autonomy and independence"@en ;
+    skos:definition "Indicates whether the research is conducted with appropriate autonomy and independence, free from undue influence."@en .
