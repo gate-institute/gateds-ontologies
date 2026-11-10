@@ -116,24 +116,28 @@ odrl:lt a odrl:Operator, owl:NamedIndividual, skos:Concept ;
 
 ### https://w3id.org/gds#Name
 gds:Name a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "name"@en ;
     skos:definition "The name identifying a participant in the GATE Data Space."@en .
 
 ### https://w3id.org/gds#MemberSince
 gds:MemberSince a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "member since"@en ;
     skos:definition "The date on which a participant became a member of the GATE Data Space."@en .
 
 ### https://w3id.org/gds#Type
 gds:Type a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "type"@en ;
     skos:definition "The type or category of a participant in the GATE Data Space."@en .
 
 ### https://w3id.org/gds#Location
 gds:Location a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "location"@en ;
     skos:definition "The geographical location associated with a participant in the GATE Data Space."@en .
