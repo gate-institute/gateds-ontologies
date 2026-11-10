@@ -51,7 +51,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:Location ;
     skos:member gds:ScientificResearchQualification ;
     skos:member gds:Article89Safeguards ;
-    skos:member gds:Article6LawfulBasis ;
+    skos:member gds:Article6LawfulBasis .
 #     skos:member gds:ScientificKnowledgeContribution ;
 #     skos:member gds:SocietalKnowledgeAndWellbeingAim ;
 #     skos:member gds:SystematicMethodology ;
