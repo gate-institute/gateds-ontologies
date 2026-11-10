@@ -47,7 +47,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:Operator ;
     skos:member gds:Municipality ;
     skos:member gds:Researcher ;
-    skos:member gds:Process ;
+    # skos:member gds:Process ;
     # skos:member gds:PayToUse ;
     # skos:member gds:Access ;
     # skos:member gds:Distribute ;
@@ -80,19 +80,19 @@ gds:gds-ttl a prof:ResourceDescriptor ;
 gds:Participant a odrl:Party, skos:Concept;
   skos:related gds:Name, gds:MemberSince, gds:Type, gds:Location ;
   rdfs:isDefinedBy gds: ;
-  rdfs:label "[GATE] Participant of GATE Data Space"@en ;
+  rdfs:label "Participant of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
 
 ### https://w3id.org/gds#GovernanceAuthority
 gds:GovernanceAuthority a odrl:Party, skos:Concept;
   rdfs:isDefinedBy gds: ;
-  rdfs:label "[GATE] Governance Authority of GATE Data Space"@en ;
+  rdfs:label "Governance Authority of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing the GATE Data Space Governance Authority"@en .
 
 ### https://w3id.org/gds#Operator
 gds:Operator a odrl:Party, skos:Concept;
   rdfs:isDefinedBy gds: ;
-  rdfs:label "[GATE] Operator of GATE Data Space"@en ;
+  rdfs:label "Operator of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) operator(s) of the GATE Data Space"@en .
 
 ### https://w3id.org/gds#Municipality
@@ -152,6 +152,17 @@ odrl:transfer a odrl:Action, skos:Concept ;
 #     odrl:includedIn odrl:transfer ;
 #     skos:definition "To redistribute / share a resource"@en .
 
+# ------------ Operators Concepts ------------------ #
+odrl:eq a odrl:Operator, owl:NamedIndividual, skos:Concept ;
+	rdfs:isDefinedBy odrl: ;
+	rdfs:label "Equal to"@en ;
+	skos:definition "Indicating that a given value equals the right operand of the Constraint."@en .
+
+odrl:gt a odrl:Operator, owl:NamedIndividual, skos:Concept ;
+	rdfs:isDefinedBy odrl: ;
+	skos:definition "Indicating that a given value is greater than the right operand of the Constraint."@en ;
+	rdfs:label "Greater than"@en .
+
 # ------------ Purpose Concepts ------------------ #
 
 # ### https://w3id.org/gds#Research
@@ -195,8 +206,6 @@ odrl:transfer a odrl:Action, skos:Concept ;
 #     rdfs:isDefinedBy gds: ;
 #     rdfs:label "valid non-disclosure agreement"@en ;
 #     skos:definition "Specifies that a valid and active non-disclosure agreement must be in place for the permitted use of the resource."@en .
-
-# ------------ Properties to be visualised as refinements ------------------ #
 
 ### https://w3id.org/gds#Name
 gds:Name a odrl:LeftOperand, rdf:Property, skos:Concept ;
@@ -295,15 +304,3 @@ gds:ResearchAutonomyIndependence a odrl:LeftOperand, rdf:Property, skos:Concept 
     rdfs:isDefinedBy gds: ;
     rdfs:label "research autonomy and independence"@en ;
     skos:definition "Indicates whether the research is conducted with appropriate autonomy and independence, free from undue influence."@en .
-
-# ------------ Operators Concepts ------------------ #
-odrl:eq a odrl:Operator, owl:NamedIndividual, skos:Concept ;
-	rdfs:isDefinedBy odrl: ;
-	rdfs:label "Equal to"@en ;
-	skos:definition "Indicating that a given value equals the right operand of the Constraint."@en .
-
-odrl:gt a odrl:Operator, owl:NamedIndividual, skos:Concept ;
-    skos:related  gds:Name ;
-	rdfs:isDefinedBy odrl: ;
-	skos:definition "Indicating that a given value is greater than the right operand of the Constraint."@en ;
-	rdfs:label "Greater than"@en .
