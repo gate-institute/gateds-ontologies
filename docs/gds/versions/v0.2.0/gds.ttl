@@ -78,7 +78,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
 
 ### https://w3id.org/gds#Participant
 gds:Participant a odrl:Party, skos:Concept;
-  skos:related gds:Name, gds:MemberSince, gds:Type, gds:Location ;
+  skos:related gds:MemberSince, gds:Type, gds:Location ;
   rdfs:isDefinedBy gds: ;
   rdfs:label "Participant of GATE Data Space"@en ;
   skos:definition "A Party / Party Collection representing (a) participant(s) of the GATE Data Space"@en .
@@ -209,6 +209,7 @@ odrl:gt a odrl:Operator, owl:NamedIndividual, skos:Concept ;
 
 ### https://w3id.org/gds#Name
 gds:Name a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "name"@en ;
     skos:definition "The name identifying a participant in the GATE Data Space."@en .
