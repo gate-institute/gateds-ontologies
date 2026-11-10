@@ -23,8 +23,8 @@
     prof:hasResource gds:gds-ttl ;
     vann:preferredNamespacePrefix "gds" ;
     vann:preferredNamespaceUri "https://w3id.org/gds#" ;
-    owl:versionIRI <https://w3id.org/gds/profile/v0.2.0> ;
-    owl:versionInfo "0.2.0" ;
+    owl:versionIRI <https://w3id.org/gds/profile/v0.2.1> ;
+    owl:versionInfo "0.2.1" ;
     dcterms:created "2025-12-23"^^xsd:date ;
     dcterms:modified "2026-11-10"^^xsd:date ;
     dcterms:creator "GATE Institute, Sofia University" ;
@@ -34,7 +34,7 @@
 
 gds:gds-ttl a prof:ResourceDescriptor ;
     prof:hasRole role:vocabulary ;
-    prof:hasArtifact <https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.2.0/gds.ttl> ;
+    prof:hasArtifact <https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.2.1/gds.ttl> ;
     dcterms:title "GATE Data Spaces ODRL Profile Turtle Vocabulary"@en ;
     dcterms:format <https://www.iana.org/assignments/media-types/text/turtle> ;
     dcterms:conformsTo <https://www.w3.org/TR/turtle> .
@@ -143,55 +143,64 @@ gds:Location a odrl:LeftOperand, rdf:Property, skos:Concept ;
     skos:definition "The geographical location associated with a participant in the GATE Data Space."@en .
 
 ### https://w3id.org/gds#ScientificResearchQualification
-gds: a odrl:LeftOperand, rdf:Property, skos:Concept ;
+gds:ScientificResearchQualification a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "scientific research qualification"@en ;
     skos:definitionScientificResearchQualification "Indicates whether an activity qualifies as scientific research under the GDPR."@en .
 
 ### https://w3id.org/gds#Article89Safeguards
 gds:Article89Safeguards a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "article 89 safeguards"@en ;
     skos:definition "Indicates whether appropriate technical and organisational safeguards are implemented in accordance with Article 89(1) of the GDPR."@en .
 
 ### https://w3id.org/gds#Article6LawfulBasis
 gds:Article6LawfulBasis a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "article 6 lawful basis"@en ;
     skos:definition "Specifies the legal basis relied upon for processing personal data under Article 6(1) of the GDPR."@en .
 
 ### https://w3id.org/gds#ScientificKnowledgeContribution
 gds:ScientificKnowledgeContribution a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "scientific knowledge contribution"@en ;
     skos:definition "Indicates whether the research has the potential to contribute to existing scientific knowledge or apply such knowledge in novel ways."@en .
 
 ### https://w3id.org/gds#SocietalKnowledgeAndWellbeingAim
 gds:SocietalKnowledgeAndWellbeingAim a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "societal knowledge and well-being aim"@en ;
     skos:definition "Indicates whether the research aims to advance collective knowledge or contribute to societal well-being."@en .
 
 ### https://w3id.org/gds#SystematicMethodology
 gds:SystematicMethodology a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "systematic methodology"@en ;
     skos:definition "Indicates whether the research follows a methodical and systematic approach appropriate to its objectives."@en .
 
 ### https://w3id.org/gds#ScientificAndEthicalStandards
 gds:ScientificAndEthicalStandards a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "scientific and ethical standards"@en ;
     skos:definition "Indicates whether the research adheres to applicable scientific and ethical standards and recognised research practices."@en .
 
 ### https://w3id.org/gds#VerifiableTransparentResults
 gds:VerifiableTransparentResults a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related odrl:use ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "verifiable transparent results"@en ;
     skos:definition "Indicates whether the research methods and results are sufficiently transparent and documented to allow independent scrutiny and verification."@en .
 
 ### https://w3id.org/gds#ResearchAutonomyIndependence
 gds:ResearchAutonomyIndependence a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:Participant ;
     rdfs:isDefinedBy gds: ;
     rdfs:label "research autonomy and independence"@en ;
     skos:definition "Indicates whether the research is conducted with appropriate autonomy and independence, free from undue influence."@en .

@@ -1,6 +1,6 @@
 # GATE Data Spaces ODRL Profile
 
-**Version:** 0.2.0  
+**Version:** 0.2.1  
 **Status:** Experimental  
 **Maintainer:** GATE Institute
 
@@ -14,7 +14,7 @@ The profile defines domain-specific concepts and reuses existing semantic vocabu
 
 - **Profile:** https://w3id.org/gds/profile
 - **Vocabulary namespace:** https://w3id.org/gds#
-- **Version 0.2.0:** https://w3id.org/gds/profile/v0.2.0
+- **Version 0.2.1:** https://w3id.org/gds/profile/v0.2.1
 
 ## Machine-Readable Specification
 
