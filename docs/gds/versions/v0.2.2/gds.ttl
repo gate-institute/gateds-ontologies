@@ -51,7 +51,13 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:Location ;
     skos:member gds:ScientificResearchQualification ;
     skos:member gds:Article89Safeguards ;
-    skos:member gds:Article6LawfulBasis .
+    skos:member gds:Article6LawfulBasis ;
+    skos:member gds:ScientificKnowledgeContribution ;
+    skos:member gds:SocietalKnowledgeAndWellbeingAim ;
+    skos:member gds:SystematicMethodology ;
+    skos:member gds:ScientificAndEthicalStandards ;
+    skos:member gds:VerifiableTransparentResults ;
+    skos:member gds:ResearchAutonomyIndependence .
 
 # ------------ Credential Annotation Vocabulary ------------------ #
 
@@ -206,3 +212,56 @@ gds:Article6LawfulBasis a odrl:LeftOperand, rdf:Property, skos:Concept ;
     rdfs:label "article 6 lawful basis"@en ;
     skos:definition "Specifies the legal basis relied upon for processing personal data under Article 6(1) of the GDPR."@en .
 
+### https://w3id.org/gds#ScientificKnowledgeContribution
+gds:ScientificKnowledgeContribution a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "scientific knowledge contribution"@en ;
+    skos:definition "Indicates whether the research has the potential to contribute to existing scientific knowledge or apply such knowledge in novel ways."@en .
+
+### https://w3id.org/gds#SocietalKnowledgeAndWellbeingAim
+gds:SocietalKnowledgeAndWellbeingAim a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "societal knowledge and well-being aim"@en ;
+    skos:definition "Indicates whether the research aims to advance collective knowledge or contribute to societal well-being."@en .
+
+### https://w3id.org/gds#SystematicMethodology
+gds:SystematicMethodology a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "systematic methodology"@en ;
+    skos:definition "Indicates whether the research follows a methodical and systematic approach appropriate to its objectives."@en .
+
+### https://w3id.org/gds#ScientificAndEthicalStandards
+gds:ScientificAndEthicalStandards a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "scientific and ethical standards"@en ;
+    skos:definition "Indicates whether the research adheres to applicable scientific and ethical standards and recognised research practices."@en .
+
+### https://w3id.org/gds#VerifiableTransparentResults
+gds:VerifiableTransparentResults a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "verifiable transparent results"@en ;
+    skos:definition "Indicates whether the research methods and results are sufficiently transparent and documented to allow independent scrutiny and verification."@en .
+
+### https://w3id.org/gds#ResearchAutonomyIndependence
+gds:ResearchAutonomyIndependence a odrl:LeftOperand, rdf:Property, skos:Concept ;
+    skos:related gds:ResearchUse ;
+    gds:credentialGroup gds:ResearchUse ;
+    gds:claimDatatype xsd:string ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "research autonomy and independence"@en ;
+    skos:definition "Indicates whether the research is conducted with appropriate autonomy and independence, free from undue influence."@en .
