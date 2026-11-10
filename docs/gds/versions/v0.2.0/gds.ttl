@@ -47,7 +47,7 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:Operator ;
     skos:member gds:Municipality ;
     skos:member gds:Researcher ;
-    # skos:member gds:Process ;
+    skos:member gds:Process ;
     # skos:member gds:PayToUse ;
     # skos:member gds:Access ;
     # skos:member gds:Distribute ;
