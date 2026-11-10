@@ -124,12 +124,12 @@ odrl:transfer a odrl:Action, skos:Concept ;
 	rdfs:label "Transfer Ownership"@en ;
 	skos:definition "To transfer the ownership of the Asset in perpetuity."@en .
 
-# ### https://w3id.org/gds#Process
-# gds:Process a odrl:Action, skos:Concept ;
-#     rdfs:isDefinedBy gds: ;
-#     rdfs:label "Process"@en ;
-#     odrl:includedIn odrl:use ;
-#     skos:definition "To carry out a series of actions to achieve a result"@en .
+### https://w3id.org/gds#Process
+gds:Process a odrl:Action, skos:Concept ;
+    rdfs:isDefinedBy gds: ;
+    rdfs:label "Process"@en ;
+    # odrl:includedIn odrl:use ;
+    skos:definition "To carry out a series of actions to achieve a result"@en .
 
 # ### https://w3id.org/gds#PayToUse
 # gds:PayToUse a odrl:Action, skos:Concept ;
