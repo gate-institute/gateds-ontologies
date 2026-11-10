@@ -14,7 +14,7 @@ The profile defines domain-specific concepts and reuses existing semantic vocabu
 
 - **Profile:** https://w3id.org/gds/profile
 - **Vocabulary namespace:** https://w3id.org/gds#
-- **Version 0.2.1:** https://w3id.org/gds/profile/v0.2.1
+- **Version 0.2.2:** https://w3id.org/gds/profile/v0.2.2
 
 ## Machine-Readable Specification
 

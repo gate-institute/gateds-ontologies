@@ -20,3 +20,9 @@ The GDS ODRL Profile extends the W3C Open Digital Rights Language (ODRL) with co
 
 - [Profile documentation](https://gate-institute.github.io/gateds-ontologies/gds/)
 - [Turtle specification v0.2.1](https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.2.1/gds.ttl)
+
+
+**Version:** 0.2.2
+
+- [Profile documentation](https://gate-institute.github.io/gateds-ontologies/gds/)
+- [Turtle specification v0.2.2](https://gate-institute.github.io/gateds-ontologies/gds/versions/v0.2.2/gds.ttl)
