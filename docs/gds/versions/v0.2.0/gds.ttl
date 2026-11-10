@@ -72,6 +72,8 @@ gds:gds-ttl a prof:ResourceDescriptor ;
     skos:member gds:SystematicMethodology ;
     skos:member gds:ScientificAndEthicalStandards ;
     skos:member gds:VerifiableTransparentResults ;
+    skos:member odrl:use ;
+    skos:member odrl:transfer ;
     skos:member gds:ResearchAutonomyIndependence .
 
 # ------------ Actor/Party Concepts ------------------ #
