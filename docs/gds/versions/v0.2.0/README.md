@@ -27,3 +27,5 @@ The profile is available in Turtle (RDF):
 This is an experimental release. The vocabulary and its semantics may evolve in subsequent versions.
 
 Previous releases are preserved in the `versions/` directory.
+
+![GDS ODRL Profile Overview](images/gds-overview.png)
